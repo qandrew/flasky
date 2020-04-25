@@ -29,6 +29,14 @@ def index():
     ]
     return render_template('index.html', title='Home', posts=posts)
 
+@app.route('/followed_posts/<username>')
+@login_required
+def followed_posts(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    posts = user.followed_posts().all()
+    posts = [{'author': p.author, 'body': p.body} for p in posts]
+    return render_template('user.html', user=user, posts=posts)
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

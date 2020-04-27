@@ -1,16 +1,4 @@
-2020-04-24 17:30:04,803 INFO: Microblog startup [in /Users/andrew.xia/Documents/Github/flasky/app/__init__.py:45]
-2020-04-24 17:46:17,731 INFO: Microblog startup [in /Users/andrew.xia/Documents/Github/flasky/app/__init__.py:45]
-2020-04-24 18:00:29,079 INFO: Microblog startup [in /Users/andrew.xia/Documents/Github/flasky/app/__init__.py:45]
-2020-04-24 18:01:57,334 ERROR: Exception on /edit_profile [POST] [in /Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1248, in _execute_context
-    cursor, statement, parameters, context
-  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 590, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.IntegrityError: UNIQUE constraint failed: user.username
-
-The above exception was the direct cause of the following exception:
-
+2020-04-25 14:24:23,940 ERROR: Exception on /followed_posts/dongjohn [GET] [in /Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -26,66 +14,31 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "/Users/andrew.xia/Documents/Github/flasky/app/routes.py", line 88, in edit_profile
-    db.session.commit()
-  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 162, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 1036, in commit
-    self.transaction.commit()
-  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 503, in commit
-    self._prepare_impl()
-  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 482, in _prepare_impl
-    self.session.flush()
-  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2496, in flush
-    self._flush(objects)
-  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2637, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
-    exc_value, with_traceback=exc_tb,
-  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 178, in raise_
-    raise exception
-  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2597, in _flush
-    flush_context.execute()
-  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
-    rec.execute(self)
-  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
-    uow,
-  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 236, in save_obj
-    update,
-  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 995, in _emit_update_statements
-    statement, multiparams
-  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 984, in execute
-    return meth(self, multiparams, params)
-  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 293, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1103, in _execute_clauseelement
-    distilled_params,
-  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1288, in _execute_context
-    e, statement, parameters, cursor, context
-  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1482, in _handle_dbapi_exception
-    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
-  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 178, in raise_
-    raise exception
-  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1248, in _execute_context
-    cursor, statement, parameters, context
-  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 590, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username
-[SQL: UPDATE user SET username=?, about_me=? WHERE user.id = ?]
-[parameters: ('dong', 'dongjohn', 3)]
-(Background on this error at: http://sqlalche.me/e/gkpj)
-2020-04-24 18:02:23,191 INFO: Microblog startup [in /Users/andrew.xia/Documents/Github/flasky/app/__init__.py:45]
-2020-04-24 18:20:54,329 INFO: Microblog startup [in /Users/andrew.xia/Documents/Github/flasky/app/__init__.py:45]
-2020-04-24 18:21:11,739 INFO: Microblog startup [in /Users/andrew.xia/Documents/Github/flasky/app/__init__.py:45]
-2020-04-24 18:21:18,785 INFO: Microblog startup [in /Users/andrew.xia/Documents/Github/flasky/app/__init__.py:45]
-2020-04-24 18:28:34,421 INFO: Microblog startup [in /Users/andrew.xia/Documents/Github/flasky/app/__init__.py:45]
-2020-04-25 13:50:23,347 INFO: Microblog startup [in /Users/andrew.xia/Documents/Github/flasky/app/__init__.py:45]
-2020-04-25 13:51:04,273 INFO: Microblog startup [in /Users/andrew.xia/Documents/Github/flasky/app/__init__.py:45]
-2020-04-25 13:51:13,241 INFO: Microblog startup [in /Users/andrew.xia/Documents/Github/flasky/app/__init__.py:45]
-2020-04-25 14:08:20,193 INFO: Microblog startup [in /Users/andrew.xia/Documents/Github/flasky/app/__init__.py:45]
-2020-04-25 14:13:00,717 INFO: Microblog startup [in /Users/andrew.xia/Documents/Github/flasky/app/__init__.py:45]
-2020-04-25 14:22:40,149 INFO: Microblog startup [in /Users/andrew.xia/Documents/Github/flasky/app/__init__.py:45]
-2020-04-25 14:22:52,515 ERROR: Exception on /followed_posts/dongjohn [GET] [in /Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/flask/app.py:1891]
+  File "/Users/andrew.xia/Documents/Github/flasky/app/routes.py", line 38, in followed_posts
+    return render_template('user.html', user=user, posts=posts)
+  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/flask/templating.py", line 140, in render_template
+    ctx.app,
+  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/andrew.xia/Documents/Github/flasky/app/templates/user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/andrew.xia/Documents/Github/flasky/app/templates/base.html", line 31, in top-level template code
+    {% block content %}{% endblock %}
+  File "/Users/andrew.xia/Documents/Github/flasky/app/templates/user.html", line 27, in block "content"
+    {% include '_post.html' %}
+  File "/Users/andrew.xia/Documents/Github/flasky/app/templates/_post.html", line 3, in top-level template code
+    <td><img src="{{ post.author.avatar(36) }}"></td>
+jinja2.exceptions.UndefinedError: 'str object' has no attribute 'avatar'
+2020-04-25 14:25:18,180 INFO: Microblog startup [in /Users/andrew.xia/Documents/Github/flasky/app/__init__.py:45]
+2020-04-25 14:25:20,261 ERROR: Exception on /followed_posts/dongjohn [GET] [in /Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -101,10 +54,55 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "/Users/andrew.xia/Documents/Github/flasky/app/routes.py", line 37, in followed_posts
-    posts = [{'author': p.author.name, 'body': p.body} for p in posts]
-  File "/Users/andrew.xia/Documents/Github/flasky/app/routes.py", line 37, in <listcomp>
-    posts = [{'author': p.author.name, 'body': p.body} for p in posts]
-AttributeError: 'User' object has no attribute 'name'
-2020-04-25 14:23:22,564 INFO: Microblog startup [in /Users/andrew.xia/Documents/Github/flasky/app/__init__.py:45]
-2020-04-25 14:24:22,008 INFO: Microblog startup [in /Users/andrew.xia/Documents/Github/flasky/app/__init__.py:45]
+  File "/Users/andrew.xia/Documents/Github/flasky/app/routes.py", line 38, in followed_posts
+    return render_template('user.html', user=user, posts=posts)
+  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/flask/templating.py", line 140, in render_template
+    ctx.app,
+  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/andrew.xia/Documents/Github/flasky/app/templates/user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/andrew.xia/Documents/Github/flasky/app/templates/base.html", line 31, in top-level template code
+    {% block content %}{% endblock %}
+  File "/Users/andrew.xia/Documents/Github/flasky/app/templates/user.html", line 27, in block "content"
+    {% include '_post.html' %}
+  File "/Users/andrew.xia/Documents/Github/flasky/app/templates/_post.html", line 3, in top-level template code
+    <td><img src="{{ post.author.avatar(36) }}"></td>
+jinja2.exceptions.UndefinedError: 'str object' has no attribute 'avatar'
+2020-04-25 14:25:53,289 INFO: Microblog startup [in /Users/andrew.xia/Documents/Github/flasky/app/__init__.py:45]
+2020-04-25 14:39:05,056 INFO: Microblog startup [in /Users/andrew.xia/Documents/Github/flasky/app/__init__.py:45]
+2020-04-25 14:42:13,600 INFO: Microblog startup [in /Users/andrew.xia/Documents/Github/flasky/app/__init__.py:45]
+2020-04-25 14:45:35,559 INFO: Microblog startup [in /Users/andrew.xia/Documents/Github/flasky/app/__init__.py:45]
+2020-04-25 14:47:55,849 INFO: Microblog startup [in /Users/andrew.xia/Documents/Github/flasky/app/__init__.py:45]
+2020-04-25 14:57:41,373 INFO: Microblog startup [in /Users/andrew.xia/Documents/Github/flasky/app/__init__.py:48]
+2020-04-25 16:40:37,915 INFO: Microblog startup [in /Users/andrew.xia/Documents/Github/flasky/app/__init__.py:48]
+2020-04-25 16:40:54,127 ERROR: Exception on /reset_password_request [POST] [in /Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/andrew.xia/Documents/Github/flasky/venv/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/andrew.xia/Documents/Github/flasky/app/routes.py", line 166, in reset_password_request
+    send_password_reset_email(user)
+  File "/Users/andrew.xia/Documents/Github/flasky/app/email.py", line 11, in send_password_reset_email
+    token = user.get_reset_password_token()
+  File "/Users/andrew.xia/Documents/Github/flasky/app/models.py", line 61, in get_reset_password_token
+    return jwt.encode(
+NameError: name 'jwt' is not defined
+2020-04-25 16:42:06,727 INFO: Microblog startup [in /Users/andrew.xia/Documents/Github/flasky/app/__init__.py:48]
